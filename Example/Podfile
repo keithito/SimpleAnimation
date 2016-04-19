@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SimpleAnimation_Example', :exclusive => true do
+  pod 'SimpleAnimation', :path => '../'
+end
+
+target 'SimpleAnimation_Tests', :exclusive => true do
+  pod 'SimpleAnimation', :path => '../'
+  pod 'Quick', '~> 0.8'
+  pod 'Nimble', '~> 3.0'
+end
