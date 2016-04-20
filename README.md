@@ -5,11 +5,29 @@
 [![License](https://img.shields.io/cocoapods/l/SimpleAnimation.svg?style=flat)](http://cocoapods.org/pods/SimpleAnimation)
 [![Platform](https://img.shields.io/cocoapods/p/SimpleAnimation.svg?style=flat)](http://cocoapods.org/pods/SimpleAnimation)
 
-## Usage
+**SimpleAnimation is a UIView extension that makes adding basic animations, like fades and bounces, simple...**
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+```swift
+view.bounceIn(from: .Left)
+```
+<img src="screenshots/bounceIn.gif" width="240" height="212">
 
-## Requirements
+
+**...with sensible defaults...**
+
+```swift
+view.popIn()
+```
+<img src="screenshots/popIn.gif" width="240" height="212">
+
+
+**...while remaining customizable**
+
+```swift
+view.shake(toward: .Top, amount: 0.5, duration: 2, delay: 0.5)
+```
+<img src="screenshots/customShake.gif" width="240" height="212">
+
 
 ## Installation
 
@@ -20,9 +38,26 @@ it, simply add the following line to your Podfile:
 pod "SimpleAnimation"
 ```
 
-## Author
+## Supported Animations
 
-Keith Ito, keeeto@gmail.com
+SimpleAnimation is still a work in progress, but so far, the following animations are supported:
+  * fadeIn
+  * fadeOut
+  * slideIn
+  * slideOut
+  * bounceIn
+  * bounceOut
+  * popIn
+  * popOut
+  * hop
+  * shake
+
+Please see the [example ViewController](Example/SimpleAnimation/ViewController.swift) for more usage examples. You can launch the example in Xcode with:
+```
+cd Example
+pod install
+open SimpleAnimation.xcworkspace
+```
 
 ## License
 
