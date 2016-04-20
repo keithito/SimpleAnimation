@@ -10,7 +10,7 @@
 ```swift
 view.bounceIn(from: .Left)
 ```
-<img src="screenshots/bounceIn.gif" width="240" height="212">
+<img src="screenshots/bounceIn.gif" width="240" height="209">
 
 
 **...with sensible defaults...**
