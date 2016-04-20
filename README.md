@@ -40,7 +40,7 @@ pod "SimpleAnimation"
 
 ## Supported Animations
 
-SimpleAnimation is still a work in progress, but so far, the following animations are supported:
+SimpleAnimation is a work in progress. So far, the following animations are supported:
   * fadeIn
   * fadeOut
   * slideIn

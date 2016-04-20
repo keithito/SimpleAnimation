@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "SimpleAnimation"
   s.version          = "0.1.0"
-  s.summary          = "A UIView extension to make simple animations, like fades and bounces, simple."
+  s.summary          = "A UIView extension that makes adding basic animations, like fades and bounces, simple."
   s.homepage         = "https://github.com/keithito/SimpleAnimation"
   s.license          = 'MIT'
   s.author           = { "Keith Ito" => "keeeto@gmail.com" }
