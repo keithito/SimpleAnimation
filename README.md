@@ -4,6 +4,7 @@
 [![Version](https://img.shields.io/cocoapods/v/SimpleAnimation.svg?style=flat)](http://cocoapods.org/pods/SimpleAnimation)
 [![License](https://img.shields.io/cocoapods/l/SimpleAnimation.svg?style=flat)](http://cocoapods.org/pods/SimpleAnimation)
 [![Platform](https://img.shields.io/cocoapods/p/SimpleAnimation.svg?style=flat)](http://cocoapods.org/pods/SimpleAnimation)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 **SimpleAnimation is a UIView extension that makes adding basic animations, like fades and bounces, simple...**
 
@@ -31,12 +32,24 @@ view.shake(toward: .Top, amount: 0.5, duration: 2, delay: 0.5)
 
 ## Installation
 
+### CocoaPods
+
 SimpleAnimation is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+it, add the following to your `Podfile`:
 
 ```ruby
 pod "SimpleAnimation"
 ```
+
+### Carthage
+
+SimpleAnimation is available through [Carthage](https://github.com/Carthage/Carthage). To install
+it, add the following to your `Cartfile`:
+
+```
+github "keithito/SimpleAnimation"
+```
+
 
 ## Supported Animations
 

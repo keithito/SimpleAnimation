@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "SimpleAnimation_Example.app"
-               BlueprintName = "SimpleAnimation_Example"
-               ReferencedContainer = "container:SimpleAnimation.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SimpleAnimation_Tests.xctest"
-               BlueprintName = "SimpleAnimation_Tests"
+               BlueprintIdentifier = "400523231CC7B47800E6DDA3"
+               BuildableName = "SimpleAnimation.framework"
+               BlueprintName = "SimpleAnimation"
                ReferencedContainer = "container:SimpleAnimation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "SimpleAnimation_Tests.xctest"
-               BlueprintName = "SimpleAnimation_Tests"
+               BlueprintIdentifier = "4005232D1CC7B47800E6DDA3"
+               BuildableName = "SimpleAnimationTests.xctest"
+               BlueprintName = "SimpleAnimationTests"
                ReferencedContainer = "container:SimpleAnimation.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SimpleAnimation_Example.app"
-            BlueprintName = "SimpleAnimation_Example"
+            BlueprintIdentifier = "400523231CC7B47800E6DDA3"
+            BuildableName = "SimpleAnimation.framework"
+            BlueprintName = "SimpleAnimation"
             ReferencedContainer = "container:SimpleAnimation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SimpleAnimation_Example.app"
-            BlueprintName = "SimpleAnimation_Example"
+            BlueprintIdentifier = "400523231CC7B47800E6DDA3"
+            BuildableName = "SimpleAnimation.framework"
+            BlueprintName = "SimpleAnimation"
             ReferencedContainer = "container:SimpleAnimation.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -94,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "SimpleAnimation_Example.app"
-            BlueprintName = "SimpleAnimation_Example"
+            BlueprintIdentifier = "400523231CC7B47800E6DDA3"
+            BuildableName = "SimpleAnimation.framework"
+            BlueprintName = "SimpleAnimation"
             ReferencedContainer = "container:SimpleAnimation.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
