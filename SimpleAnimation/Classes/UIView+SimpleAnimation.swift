@@ -8,6 +8,14 @@
 import UIKit
 
 
+/**
+  Edge of the view's parent that the animation should involve
+  - None: involves no edge
+  - Top: involves the top edge of the parent
+  - Bottom: involves the bottom edge of the parent
+  - Left: involves the left edge of the parent
+  - Right: involves the right edge of the parent
+ */
 public enum SimpleAnimationEdge {
   case None
   case Top
@@ -17,6 +25,16 @@ public enum SimpleAnimationEdge {
 }
 
 public extension UIView {
+  /**
+    Fades this view in. This method can be chained with other animations to combine a fade with
+    the other animation, for instance:
+    ```
+    view.fadeIn().slideIn(from: .Left)
+    ```
+    - Parameters:
+      - duration: duration of the animation, in seconds
+      - delay: delay before the animation starts, in seconds
+   */
   func fadeIn(duration: NSTimeInterval = 0.25,
               delay: NSTimeInterval = 0) -> UIView {
     hidden = false
@@ -28,6 +46,16 @@ public extension UIView {
     return self
   }
 
+  /**
+   Fades this view out. This method can be chained with other animations to combine a fade with
+   the other animation, for instance:
+   ```
+   view.fadeOut().slideOut(to: .Right)
+   ```
+   - Parameters:
+     - duration: duration of the animation, in seconds
+     - delay: delay before the animation starts, in seconds
+   */
   func fadeOut(duration: NSTimeInterval = 0.25,
                delay: NSTimeInterval = 0) -> UIView {
     UIView.animateWithDuration(
@@ -37,6 +65,16 @@ public extension UIView {
     return self
   }
 
+  /**
+   Slides this view into position, from an edge of the parent (if "from" is set) or a fixed offset
+   away from its position (if "x" and "y" are set).
+   - Parameters:
+     - from: edge of the parent view that should be used as the starting point of the animation
+     - x: horizontal offset that should be used for the starting point of the animation
+     - y: vertical offset that should be used for the starting point of the animation
+     - duration: duration of the animation, in seconds
+     - delay: delay before the animation starts, in seconds
+   */
   func slideIn(from edge: SimpleAnimationEdge = .None,
                     x: CGFloat = 0,
                     y: CGFloat = 0,
@@ -54,6 +92,16 @@ public extension UIView {
     return self
   }
 
+  /**
+   Slides this view out of its position, toward an edge of the parent (if "to" is set) or a fixed
+   offset away from its position (if "x" and "y" are set).
+   - Parameters:
+     - to: edge of the parent view that should be used as the ending point of the animation
+     - x: horizontal offset that should be used for the ending point of the animation
+     - y: vertical offset that should be used for the ending point of the animation
+     - duration: duration of the animation, in seconds
+     - delay: delay before the animation starts, in seconds
+   */
   func slideOut(to edge: SimpleAnimationEdge = .None,
                    x: CGFloat = 0,
                    y: CGFloat = 0,
@@ -68,6 +116,16 @@ public extension UIView {
     return self
   }
 
+  /**
+   Moves this view into position, with a bounce at the end, either from an edge of the parent (if
+   "from" is set) or a fixed offset away from its position (if "x" and "y" are set).
+   - Parameters:
+     - from: edge of the parent view that should be used as the starting point of the animation
+     - x: horizontal offset that should be used for the starting point of the animation
+     - y: vertical offset that should be used for the starting point of the animation
+     - duration: duration of the animation, in seconds
+     - delay: delay before the animation starts, in seconds
+   */
   func bounceIn(from edge: SimpleAnimationEdge = .None,
                      x: CGFloat = 0,
                      y: CGFloat = 0,
@@ -85,6 +143,16 @@ public extension UIView {
     return self
   }
 
+  /**
+   Moves this view out of its position, starting with a bounce. The view moves toward an edge of
+   the parent (if "to" is set) or a fixed offset away from its position (if "x" and "y" are set).
+   - Parameters:
+     - to: edge of the parent view that should be used as the ending point of the animation
+     - x: horizontal offset that should be used for the ending point of the animation
+     - y: vertical offset that should be used for the ending point of the animation
+     - duration: duration of the animation, in seconds
+     - delay: delay before the animation starts, in seconds
+   */
   func bounceOut(to edge: SimpleAnimationEdge = .None,
                     x: CGFloat = 0,
                     y: CGFloat = 0,
@@ -109,9 +177,16 @@ public extension UIView {
     return self
   }
 
-  func popIn(duration: NSTimeInterval = 0.5,
-             delay: NSTimeInterval = 0,
-             fromScale: CGFloat = 0.5) -> UIView {
+  /**
+   Moves this view into position, as though it were popping out of the screen.
+   - Parameters:
+     - fromScale: starting scale for the view, should be between 0 and 1
+     - duration: duration of the animation, in seconds
+     - delay: delay before the animation starts, in seconds
+   */
+  func popIn(fromScale: CGFloat = 0.5,
+             duration: NSTimeInterval = 0.5,
+             delay: NSTimeInterval = 0) -> UIView {
     hidden = false
     alpha = 0
     transform = CGAffineTransformMakeScale(fromScale, fromScale)
@@ -124,9 +199,16 @@ public extension UIView {
     return self
   }
 
-  func popOut(duration: NSTimeInterval = 0.3,
-              delay: NSTimeInterval = 0,
-              toScale: CGFloat = 0.5) -> UIView {
+  /**
+   Moves this view out of position, as though it were withdrawing into the screen.
+   - Parameters:
+     - toScale: ending scale for the view, should be between 0 and 1
+     - duration: duration of the animation, in seconds
+     - delay: delay before the animation starts, in seconds
+   */
+  func popOut(toScale: CGFloat = 0.5,
+              duration: NSTimeInterval = 0.3,
+              delay: NSTimeInterval = 0) -> UIView {
     let endTransform = CGAffineTransformMakeScale(toScale, toScale)
     let prepareTransform = CGAffineTransformMakeScale(1.1, 1.1)
     UIView.animateKeyframesWithDuration(
@@ -145,6 +227,15 @@ public extension UIView {
     return self
   }
 
+  /**
+   Causes the view to hop, either toward a particular edge or out of the screen (if "toward" is
+   .None).
+   - Parameters:
+     - toward: the edge to hop toward, or .None to hop out
+     - amount: distance to hop, expressed as a fraction of the view's size
+     - duration: duration of the animation, in seconds
+     - delay: delay before the animation starts, in seconds
+   */
   func hop(toward edge: SimpleAnimationEdge = .None,
                   amount: CGFloat = 0.4,
                   duration: NSTimeInterval = 0.6,
@@ -179,6 +270,15 @@ public extension UIView {
     return self
   }
 
+  /**
+   Causes the view to shake, either toward a particular edge or in all directions (if "toward" is
+   .None).
+   - Parameters:
+     - toward: the edge to shake toward, or .None to shake in all directions
+     - amount: distance to shake, expressed as a fraction of the view's size
+     - duration: duration of the animation, in seconds
+     - delay: delay before the animation starts, in seconds
+   */
   func shake(toward edge: SimpleAnimationEdge = .None,
                     amount: CGFloat = 0.15,
                     duration: NSTimeInterval = 0.6,
