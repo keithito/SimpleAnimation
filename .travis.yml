@@ -6,7 +6,6 @@ language: objective-c
 osx_image: xcode7.3
 before_install:
 - gem install cocoapods xcpretty --no-rdoc --no-ri --no-document --quiet
-- pod install --project-directory=Example
 script:
-- set -o pipefail && xcodebuild test -workspace  Example/SimpleAnimation.xcworkspace -scheme SimpleAnimation-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail && xcodebuild test -workspace SimpleAnimation.xcworkspace -scheme SimpleAnimation -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint --quick
