@@ -34,15 +34,17 @@ public extension UIView {
     - Parameters:
       - duration: duration of the animation, in seconds
       - delay: delay before the animation starts, in seconds
+      - completion: block executed when the animation ends
    */
   func fadeIn(duration: NSTimeInterval = 0.25,
-              delay: NSTimeInterval = 0) -> UIView {
+              delay: NSTimeInterval = 0,
+              completion: ((Bool) -> Void)? = nil) -> UIView {
     hidden = false
     alpha = 0
     UIView.animateWithDuration(
       duration, delay: delay, options: .CurveEaseInOut, animations: {
         self.alpha = 1
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
@@ -55,13 +57,15 @@ public extension UIView {
    - Parameters:
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
+     - completion: block executed when the animation ends
    */
   func fadeOut(duration: NSTimeInterval = 0.25,
-               delay: NSTimeInterval = 0) -> UIView {
+               delay: NSTimeInterval = 0,
+               completion: ((Bool) -> Void)? = nil) -> UIView {
     UIView.animateWithDuration(
       duration, delay: delay, options: .CurveEaseOut, animations: {
         self.alpha = 0
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
@@ -74,12 +78,14 @@ public extension UIView {
      - y: vertical offset that should be used for the starting point of the animation
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
+     - completion: block executed when the animation ends
    */
   func slideIn(from edge: SimpleAnimationEdge = .None,
                     x: CGFloat = 0,
                     y: CGFloat = 0,
                     duration: NSTimeInterval = 0.4,
-                    delay: NSTimeInterval = 0) -> UIView {
+                    delay: NSTimeInterval = 0,
+                    completion: ((Bool) -> Void)? = nil) -> UIView {
     let offset = offsetForEdge(edge)
     transform = CGAffineTransformMakeTranslation(offset.x + x, offset.y + y)
     hidden = false
@@ -88,7 +94,7 @@ public extension UIView {
       options: .CurveEaseOut, animations: {
         self.transform = CGAffineTransformIdentity
         self.alpha = 1
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
@@ -101,18 +107,20 @@ public extension UIView {
      - y: vertical offset that should be used for the ending point of the animation
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
+     - completion: block executed when the animation ends
    */
   func slideOut(to edge: SimpleAnimationEdge = .None,
                    x: CGFloat = 0,
                    y: CGFloat = 0,
                    duration: NSTimeInterval = 0.25,
-                   delay: NSTimeInterval = 0) -> UIView {
+                   delay: NSTimeInterval = 0,
+                   completion: ((Bool) -> Void)? = nil) -> UIView {
     let offset = offsetForEdge(edge)
     let endTransform = CGAffineTransformMakeTranslation(offset.x + x, offset.y + y)
     UIView.animateWithDuration(
       duration, delay: delay, options: .CurveEaseOut, animations: {
         self.transform = endTransform
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
@@ -125,12 +133,14 @@ public extension UIView {
      - y: vertical offset that should be used for the starting point of the animation
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
+     - completion: block executed when the animation ends
    */
   func bounceIn(from edge: SimpleAnimationEdge = .None,
                      x: CGFloat = 0,
                      y: CGFloat = 0,
                      duration: NSTimeInterval = 0.5,
-                     delay: NSTimeInterval = 0) -> UIView {
+                     delay: NSTimeInterval = 0,
+                     completion: ((Bool) -> Void)? = nil) -> UIView {
     let offset = offsetForEdge(edge)
     transform = CGAffineTransformMakeTranslation(offset.x + x, offset.y + y)
     hidden = false
@@ -139,7 +149,7 @@ public extension UIView {
       options: .CurveEaseOut, animations: {
         self.transform = CGAffineTransformIdentity
         self.alpha = 1
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
@@ -152,12 +162,14 @@ public extension UIView {
      - y: vertical offset that should be used for the ending point of the animation
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
+     - completion: block executed when the animation ends
    */
   func bounceOut(to edge: SimpleAnimationEdge = .None,
                     x: CGFloat = 0,
                     y: CGFloat = 0,
                     duration: NSTimeInterval = 0.35,
-                    delay: NSTimeInterval = 0) -> UIView {
+                    delay: NSTimeInterval = 0,
+                    completion: ((Bool) -> Void)? = nil) -> UIView {
     let offset = offsetForEdge(edge)
     let delta = CGPoint(x: offset.x + x, y: offset.y + y)
     let endTransform = CGAffineTransformMakeTranslation(delta.x, delta.y)
@@ -173,7 +185,7 @@ public extension UIView {
         UIView.addKeyframeWithRelativeStartTime(0.4, relativeDuration: 0.6) {
           self.transform = endTransform
         }
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
@@ -183,10 +195,12 @@ public extension UIView {
      - fromScale: starting scale for the view, should be between 0 and 1
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
+     - completion: block executed when the animation ends
    */
   func popIn(fromScale: CGFloat = 0.5,
              duration: NSTimeInterval = 0.5,
-             delay: NSTimeInterval = 0) -> UIView {
+             delay: NSTimeInterval = 0,
+             completion: ((Bool) -> Void)? = nil) -> UIView {
     hidden = false
     alpha = 0
     transform = CGAffineTransformMakeScale(fromScale, fromScale)
@@ -195,7 +209,7 @@ public extension UIView {
       options: .CurveEaseOut, animations: {
         self.transform = CGAffineTransformIdentity
         self.alpha = 1
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
@@ -205,10 +219,12 @@ public extension UIView {
      - toScale: ending scale for the view, should be between 0 and 1
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
+     - completion: block executed when the animation ends
    */
   func popOut(toScale: CGFloat = 0.5,
               duration: NSTimeInterval = 0.3,
-              delay: NSTimeInterval = 0) -> UIView {
+              delay: NSTimeInterval = 0,
+              completion: ((Bool) -> Void)? = nil) -> UIView {
     let endTransform = CGAffineTransformMakeScale(toScale, toScale)
     let prepareTransform = CGAffineTransformMakeScale(1.1, 1.1)
     UIView.animateKeyframesWithDuration(
@@ -223,7 +239,7 @@ public extension UIView {
           self.transform = endTransform
           self.alpha = 0
         }
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
@@ -235,11 +251,13 @@ public extension UIView {
      - amount: distance to hop, expressed as a fraction of the view's size
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
+     - completion: block executed when the animation ends
    */
   func hop(toward edge: SimpleAnimationEdge = .None,
                   amount: CGFloat = 0.4,
                   duration: NSTimeInterval = 0.6,
-                  delay: NSTimeInterval = 0) -> UIView {
+                  delay: NSTimeInterval = 0,
+                  completion: ((Bool) -> Void)? = nil) -> UIView {
     var dx: CGFloat = 0, dy: CGFloat = 0, ds: CGFloat = 0
     if edge == .None {
       ds = amount / 2
@@ -266,7 +284,7 @@ public extension UIView {
         UIView.addKeyframeWithRelativeStartTime(0.84, relativeDuration: 0.16) {
           self.transform = CGAffineTransformIdentity
         }
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
@@ -278,11 +296,13 @@ public extension UIView {
      - amount: distance to shake, expressed as a fraction of the view's size
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
+     - completion: block executed when the animation ends
    */
   func shake(toward edge: SimpleAnimationEdge = .None,
                     amount: CGFloat = 0.15,
                     duration: NSTimeInterval = 0.6,
-                    delay: NSTimeInterval = 0) -> UIView {
+                    delay: NSTimeInterval = 0,
+                    completion: ((Bool) -> Void)? = nil) -> UIView {
     let steps = 8
     let timeStep = 1.0 / Double(steps)
     var dx: CGFloat, dy: CGFloat
@@ -311,7 +331,7 @@ public extension UIView {
         UIView.addKeyframeWithRelativeStartTime(start, relativeDuration: timeStep) {
           self.transform = CGAffineTransformIdentity
         }
-      }, completion: nil)
+      }, completion: completion)
     return self
   }
 
