@@ -24,6 +24,9 @@ public enum SimpleAnimationEdge {
   case Right
 }
 
+/**
+  A UIView extension that makes adding basic animations, like fades and bounces, simple.
+ */
 public extension UIView {
   /**
     Fades this view in. This method can be chained with other animations to combine a fade with
