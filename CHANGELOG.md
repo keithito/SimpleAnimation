@@ -1,3 +1,9 @@
+## [0.2.0](https://github.com/keithito/SimpleAnimation/releases/tag/0.2.0)
+*2016-07-24*
+
+- Completion blocks for animations - [#9](https://github.com/keithito/SimpleAnimation/pull/9)
+
+
 ## [0.1.3](https://github.com/keithito/SimpleAnimation/releases/tag/0.1.3)
 *2016-04-21*
 
