@@ -29,6 +29,8 @@ view.shake(toward: .Top, amount: 0.5, duration: 2, delay: 0.5)
 ```
 <img src="screenshots/customShake.gif" width="240" height="212">
 
+SimpleAnimation is written in Swift 3.
+
 
 ## Installation
 
@@ -40,6 +42,12 @@ it, add the following to your `Podfile`:
 ```ruby
 pod "SimpleAnimation"
 ```
+
+For Swift 2.2 or 2.3, use:
+```ruby
+pod "SimpleAnimation", '~>0.2'
+```
+
 
 ### Carthage
 
