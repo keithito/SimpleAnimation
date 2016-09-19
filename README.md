@@ -1,6 +1,6 @@
 # SimpleAnimation
 
-[![CI Status](http://img.shields.io/travis/keithito/SimpleAnimation.svg?style=flat)](https://travis-ci.org/keithito/SimpleAnimation)
+[![CI Status](https://travis-ci.org/keithito/SimpleAnimation.svg?branch=master)](https://travis-ci.org/keithito/SimpleAnimation)
 [![Version](https://img.shields.io/cocoapods/v/SimpleAnimation.svg?style=flat)](http://cocoapods.org/pods/SimpleAnimation)
 [![License](https://img.shields.io/cocoapods/l/SimpleAnimation.svg?style=flat)](http://cocoapods.org/pods/SimpleAnimation)
 [![Platform](https://img.shields.io/cocoapods/p/SimpleAnimation.svg?style=flat)](http://cocoapods.org/pods/SimpleAnimation)
