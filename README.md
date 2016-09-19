@@ -9,7 +9,7 @@
 **SimpleAnimation is a UIView extension that makes adding basic animations, like fades and bounces, simple...**
 
 ```swift
-view.bounceIn(from: .Left)
+view.bounceIn(from: .left)
 ```
 <img src="screenshots/bounceIn.gif" width="240" height="209">
 
@@ -25,7 +25,7 @@ view.popIn()
 **...while remaining customizable**
 
 ```swift
-view.shake(toward: .Top, amount: 0.5, duration: 2, delay: 0.5)
+view.shake(toward: .top, amount: 0.5, duration: 2, delay: 0.5)
 ```
 <img src="screenshots/customShake.gif" width="240" height="212">
 
@@ -61,7 +61,7 @@ github "keithito/SimpleAnimation"
 
 ## Supported Animations
 
-SimpleAnimation is a work in progress. So far, the following animations are supported:
+The following animations are supported so far:
   * fadeIn
   * fadeOut
   * slideIn
