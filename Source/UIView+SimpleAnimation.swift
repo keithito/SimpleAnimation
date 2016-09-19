@@ -10,18 +10,18 @@ import UIKit
 
 /**
   Edge of the view's parent that the animation should involve
-  - None: involves no edge
-  - Top: involves the top edge of the parent
-  - Bottom: involves the bottom edge of the parent
-  - Left: involves the left edge of the parent
-  - Right: involves the right edge of the parent
+  - none: involves no edge
+  - top: involves the top edge of the parent
+  - bottom: involves the bottom edge of the parent
+  - left: involves the left edge of the parent
+  - right: involves the right edge of the parent
  */
 public enum SimpleAnimationEdge {
-  case None
-  case Top
-  case Bottom
-  case Left
-  case Right
+  case none
+  case top
+  case bottom
+  case left
+  case right
 }
 
 /**
@@ -32,20 +32,20 @@ public extension UIView {
     Fades this view in. This method can be chained with other animations to combine a fade with
     the other animation, for instance:
     ```
-    view.fadeIn().slideIn(from: .Left)
+    view.fadeIn().slideIn(from: .left)
     ```
     - Parameters:
       - duration: duration of the animation, in seconds
       - delay: delay before the animation starts, in seconds
       - completion: block executed when the animation ends
    */
-  func fadeIn(duration: NSTimeInterval = 0.25,
-              delay: NSTimeInterval = 0,
-              completion: ((Bool) -> Void)? = nil) -> UIView {
-    hidden = false
+  @discardableResult func fadeIn(duration: TimeInterval = 0.25,
+                                 delay: TimeInterval = 0,
+                                 completion: ((Bool) -> Void)? = nil) -> UIView {
+    isHidden = false
     alpha = 0
-    UIView.animateWithDuration(
-      duration, delay: delay, options: .CurveEaseInOut, animations: {
+    UIView.animate(
+      withDuration: duration, delay: delay, options: .curveEaseInOut, animations: {
         self.alpha = 1
       }, completion: completion)
     return self
@@ -55,18 +55,18 @@ public extension UIView {
    Fades this view out. This method can be chained with other animations to combine a fade with
    the other animation, for instance:
    ```
-   view.fadeOut().slideOut(to: .Right)
+   view.fadeOut().slideOut(to: .right)
    ```
    - Parameters:
      - duration: duration of the animation, in seconds
      - delay: delay before the animation starts, in seconds
      - completion: block executed when the animation ends
    */
-  func fadeOut(duration: NSTimeInterval = 0.25,
-               delay: NSTimeInterval = 0,
-               completion: ((Bool) -> Void)? = nil) -> UIView {
-    UIView.animateWithDuration(
-      duration, delay: delay, options: .CurveEaseOut, animations: {
+  @discardableResult func fadeOut(duration: TimeInterval = 0.25,
+                                  delay: TimeInterval = 0,
+                                  completion: ((Bool) -> Void)? = nil) -> UIView {
+    UIView.animate(
+      withDuration: duration, delay: delay, options: .curveEaseOut, animations: {
         self.alpha = 0
       }, completion: completion)
     return self
@@ -83,19 +83,19 @@ public extension UIView {
      - delay: delay before the animation starts, in seconds
      - completion: block executed when the animation ends
    */
-  func slideIn(from edge: SimpleAnimationEdge = .None,
-                    x: CGFloat = 0,
-                    y: CGFloat = 0,
-                    duration: NSTimeInterval = 0.4,
-                    delay: NSTimeInterval = 0,
-                    completion: ((Bool) -> Void)? = nil) -> UIView {
-    let offset = offsetForEdge(edge)
-    transform = CGAffineTransformMakeTranslation(offset.x + x, offset.y + y)
-    hidden = false
-    UIView.animateWithDuration(
-      duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 2,
-      options: .CurveEaseOut, animations: {
-        self.transform = CGAffineTransformIdentity
+  @discardableResult func slideIn(from edge: SimpleAnimationEdge = .none,
+                                  x: CGFloat = 0,
+                                  y: CGFloat = 0,
+                                  duration: TimeInterval = 0.4,
+                                  delay: TimeInterval = 0,
+                                  completion: ((Bool) -> Void)? = nil) -> UIView {
+    let offset = offsetFor(edge: edge)
+    transform = CGAffineTransform(translationX: offset.x + x, y: offset.y + y)
+    isHidden = false
+    UIView.animate(
+      withDuration: duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 2,
+      options: .curveEaseOut, animations: {
+        self.transform = .identity
         self.alpha = 1
       }, completion: completion)
     return self
@@ -112,16 +112,16 @@ public extension UIView {
      - delay: delay before the animation starts, in seconds
      - completion: block executed when the animation ends
    */
-  func slideOut(to edge: SimpleAnimationEdge = .None,
-                   x: CGFloat = 0,
-                   y: CGFloat = 0,
-                   duration: NSTimeInterval = 0.25,
-                   delay: NSTimeInterval = 0,
-                   completion: ((Bool) -> Void)? = nil) -> UIView {
-    let offset = offsetForEdge(edge)
-    let endTransform = CGAffineTransformMakeTranslation(offset.x + x, offset.y + y)
-    UIView.animateWithDuration(
-      duration, delay: delay, options: .CurveEaseOut, animations: {
+  @discardableResult func slideOut(to edge: SimpleAnimationEdge = .none,
+                                   x: CGFloat = 0,
+                                   y: CGFloat = 0,
+                                   duration: TimeInterval = 0.25,
+                                   delay: TimeInterval = 0,
+                                   completion: ((Bool) -> Void)? = nil) -> UIView {
+    let offset = offsetFor(edge: edge)
+    let endTransform = CGAffineTransform(translationX: offset.x + x, y: offset.y + y)
+    UIView.animate(
+      withDuration: duration, delay: delay, options: .curveEaseOut, animations: {
         self.transform = endTransform
       }, completion: completion)
     return self
@@ -138,19 +138,19 @@ public extension UIView {
      - delay: delay before the animation starts, in seconds
      - completion: block executed when the animation ends
    */
-  func bounceIn(from edge: SimpleAnimationEdge = .None,
-                     x: CGFloat = 0,
-                     y: CGFloat = 0,
-                     duration: NSTimeInterval = 0.5,
-                     delay: NSTimeInterval = 0,
-                     completion: ((Bool) -> Void)? = nil) -> UIView {
-    let offset = offsetForEdge(edge)
-    transform = CGAffineTransformMakeTranslation(offset.x + x, offset.y + y)
-    hidden = false
-    UIView.animateWithDuration(
-      duration, delay: delay, usingSpringWithDamping: 0.58, initialSpringVelocity: 3,
-      options: .CurveEaseOut, animations: {
-        self.transform = CGAffineTransformIdentity
+  @discardableResult func bounceIn(from edge: SimpleAnimationEdge = .none,
+                                   x: CGFloat = 0,
+                                   y: CGFloat = 0,
+                                   duration: TimeInterval = 0.5,
+                                   delay: TimeInterval = 0,
+                                   completion: ((Bool) -> Void)? = nil) -> UIView {
+    let offset = offsetFor(edge: edge)
+    transform = CGAffineTransform(translationX: offset.x + x, y: offset.y + y)
+    isHidden = false
+    UIView.animate(
+      withDuration: duration, delay: delay, usingSpringWithDamping: 0.58, initialSpringVelocity: 3,
+      options: .curveEaseOut, animations: {
+        self.transform = .identity
         self.alpha = 1
       }, completion: completion)
     return self
@@ -167,25 +167,25 @@ public extension UIView {
      - delay: delay before the animation starts, in seconds
      - completion: block executed when the animation ends
    */
-  func bounceOut(to edge: SimpleAnimationEdge = .None,
-                    x: CGFloat = 0,
-                    y: CGFloat = 0,
-                    duration: NSTimeInterval = 0.35,
-                    delay: NSTimeInterval = 0,
-                    completion: ((Bool) -> Void)? = nil) -> UIView {
-    let offset = offsetForEdge(edge)
+  @discardableResult func bounceOut(to edge: SimpleAnimationEdge = .none,
+                                    x: CGFloat = 0,
+                                    y: CGFloat = 0,
+                                    duration: TimeInterval = 0.35,
+                                    delay: TimeInterval = 0,
+                                    completion: ((Bool) -> Void)? = nil) -> UIView {
+    let offset = offsetFor(edge: edge)
     let delta = CGPoint(x: offset.x + x, y: offset.y + y)
-    let endTransform = CGAffineTransformMakeTranslation(delta.x, delta.y)
-    let prepareTransform = CGAffineTransformMakeTranslation(-delta.x * 0.2, -delta.y * 0.2)
-    UIView.animateKeyframesWithDuration(
-      duration, delay: delay, options: .CalculationModeCubic, animations: {
-        UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.2) {
+    let endTransform = CGAffineTransform(translationX: delta.x, y: delta.y)
+    let prepareTransform = CGAffineTransform(translationX: -delta.x * 0.2, y: -delta.y * 0.2)
+    UIView.animateKeyframes(
+      withDuration: duration, delay: delay, options: .calculationModeCubic, animations: {
+        UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
           self.transform = prepareTransform
         }
-        UIView.addKeyframeWithRelativeStartTime(0.2, relativeDuration: 0.2) {
+        UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.2) {
           self.transform = prepareTransform
         }
-        UIView.addKeyframeWithRelativeStartTime(0.4, relativeDuration: 0.6) {
+        UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.6) {
           self.transform = endTransform
         }
       }, completion: completion)
@@ -200,17 +200,17 @@ public extension UIView {
      - delay: delay before the animation starts, in seconds
      - completion: block executed when the animation ends
    */
-  func popIn(fromScale: CGFloat = 0.5,
-             duration: NSTimeInterval = 0.5,
-             delay: NSTimeInterval = 0,
-             completion: ((Bool) -> Void)? = nil) -> UIView {
-    hidden = false
+  @discardableResult func popIn(fromScale: CGFloat = 0.5,
+                                duration: TimeInterval = 0.5,
+                                delay: TimeInterval = 0,
+                                completion: ((Bool) -> Void)? = nil) -> UIView {
+    isHidden = false
     alpha = 0
-    transform = CGAffineTransformMakeScale(fromScale, fromScale)
-    UIView.animateWithDuration(
-      duration, delay: delay, usingSpringWithDamping: 0.55, initialSpringVelocity: 3,
-      options: .CurveEaseOut, animations: {
-        self.transform = CGAffineTransformIdentity
+    transform = CGAffineTransform(scaleX: fromScale, y: fromScale)
+    UIView.animate(
+      withDuration: duration, delay: delay, usingSpringWithDamping: 0.55, initialSpringVelocity: 3,
+      options: .curveEaseOut, animations: {
+        self.transform = .identity
         self.alpha = 1
       }, completion: completion)
     return self
@@ -224,21 +224,21 @@ public extension UIView {
      - delay: delay before the animation starts, in seconds
      - completion: block executed when the animation ends
    */
-  func popOut(toScale: CGFloat = 0.5,
-              duration: NSTimeInterval = 0.3,
-              delay: NSTimeInterval = 0,
-              completion: ((Bool) -> Void)? = nil) -> UIView {
-    let endTransform = CGAffineTransformMakeScale(toScale, toScale)
-    let prepareTransform = CGAffineTransformMakeScale(1.1, 1.1)
-    UIView.animateKeyframesWithDuration(
-      duration, delay: delay, options: .CalculationModeCubic, animations: {
-        UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.2) {
+  @discardableResult func popOut(toScale: CGFloat = 0.5,
+                                 duration: TimeInterval = 0.3,
+                                 delay: TimeInterval = 0,
+                                 completion: ((Bool) -> Void)? = nil) -> UIView {
+    let endTransform = CGAffineTransform(scaleX: toScale, y: toScale)
+    let prepareTransform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+    UIView.animateKeyframes(
+      withDuration: duration, delay: delay, options: .calculationModeCubic, animations: {
+        UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
           self.transform = prepareTransform
         }
-        UIView.addKeyframeWithRelativeStartTime(0.2, relativeDuration: 0.3) {
+        UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.3) {
           self.transform = prepareTransform
         }
-        UIView.addKeyframeWithRelativeStartTime(0.5, relativeDuration: 0.5) {
+        UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
           self.transform = endTransform
           self.alpha = 0
         }
@@ -256,36 +256,36 @@ public extension UIView {
      - delay: delay before the animation starts, in seconds
      - completion: block executed when the animation ends
    */
-  func hop(toward edge: SimpleAnimationEdge = .None,
-                  amount: CGFloat = 0.4,
-                  duration: NSTimeInterval = 0.6,
-                  delay: NSTimeInterval = 0,
-                  completion: ((Bool) -> Void)? = nil) -> UIView {
+  @discardableResult func hop(toward edge: SimpleAnimationEdge = .none,
+                              amount: CGFloat = 0.4,
+                              duration: TimeInterval = 0.6,
+                              delay: TimeInterval = 0,
+                              completion: ((Bool) -> Void)? = nil) -> UIView {
     var dx: CGFloat = 0, dy: CGFloat = 0, ds: CGFloat = 0
-    if edge == .None {
+    if edge == .none {
       ds = amount / 2
-    } else if edge == .Left || edge == .Right {
-      dx = (edge == .Left ? -1 : 1) * self.bounds.size.width * amount;
+    } else if edge == .left || edge == .right {
+      dx = (edge == .left ? -1 : 1) * self.bounds.size.width * amount;
       dy = 0
     } else {
       dx = 0
-      dy = (edge == .Top ? -1 : 1) * self.bounds.size.height * amount;
+      dy = (edge == .top ? -1 : 1) * self.bounds.size.height * amount;
     }
-    UIView.animateKeyframesWithDuration(
-      duration, delay: delay, options: .CalculationModeLinear, animations: {
-        UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 0.28) {
-          let t = CGAffineTransformMakeTranslation(dx, dy)
-          self.transform = CGAffineTransformScale(t, 1 + ds, 1 + ds)
+    UIView.animateKeyframes(
+      withDuration: duration, delay: delay, options: .calculationModeLinear, animations: {
+        UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.28) {
+          let t = CGAffineTransform(translationX: dx, y: dy)
+          self.transform = t.scaledBy(x: 1 + ds, y: 1 + ds)
         }
-        UIView.addKeyframeWithRelativeStartTime(0.28, relativeDuration: 0.28) {
-          self.transform = CGAffineTransformIdentity
+        UIView.addKeyframe(withRelativeStartTime: 0.28, relativeDuration: 0.28) {
+          self.transform = .identity
         }
-        UIView.addKeyframeWithRelativeStartTime(0.56, relativeDuration: 0.28) {
-          let t = CGAffineTransformMakeTranslation(dx * 0.5, dy * 0.5)
-          self.transform = CGAffineTransformScale(t, 1 + ds * 0.5, 1 + ds * 0.5)
+        UIView.addKeyframe(withRelativeStartTime: 0.56, relativeDuration: 0.28) {
+          let t = CGAffineTransform(translationX: dx * 0.5, y: dy * 0.5)
+          self.transform = t.scaledBy(x: 1 + ds * 0.5, y: 1 + ds * 0.5)
         }
-        UIView.addKeyframeWithRelativeStartTime(0.84, relativeDuration: 0.16) {
-          self.transform = CGAffineTransformIdentity
+        UIView.addKeyframe(withRelativeStartTime: 0.84, relativeDuration: 0.16) {
+          self.transform = .identity
         }
       }, completion: completion)
     return self
@@ -301,29 +301,29 @@ public extension UIView {
      - delay: delay before the animation starts, in seconds
      - completion: block executed when the animation ends
    */
-  func shake(toward edge: SimpleAnimationEdge = .None,
-                    amount: CGFloat = 0.15,
-                    duration: NSTimeInterval = 0.6,
-                    delay: NSTimeInterval = 0,
-                    completion: ((Bool) -> Void)? = nil) -> UIView {
+  @discardableResult func shake(toward edge: SimpleAnimationEdge = .none,
+                                amount: CGFloat = 0.15,
+                                duration: TimeInterval = 0.6,
+                                delay: TimeInterval = 0,
+                                completion: ((Bool) -> Void)? = nil) -> UIView {
     let steps = 8
     let timeStep = 1.0 / Double(steps)
     var dx: CGFloat, dy: CGFloat
-    if edge == .Left || edge == .Right {
-      dx = (edge == .Left ? -1 : 1) * self.bounds.size.width * amount;
+    if edge == .left || edge == .right {
+      dx = (edge == .left ? -1 : 1) * self.bounds.size.width * amount;
       dy = 0
     } else {
       dx = 0
-      dy = (edge == .Top ? -1 : 1) * self.bounds.size.height * amount;
+      dy = (edge == .top ? -1 : 1) * self.bounds.size.height * amount;
     }
-    UIView.animateKeyframesWithDuration(
-      duration, delay: delay, options: .CalculationModeCubic, animations: {
+    UIView.animateKeyframes(
+      withDuration: duration, delay: delay, options: .calculationModeCubic, animations: {
         var start = 0.0
         for i in 0..<(steps - 1) {
-          UIView.addKeyframeWithRelativeStartTime(start, relativeDuration: timeStep) {
-            self.transform = CGAffineTransformMakeTranslation(dx, dy)
+          UIView.addKeyframe(withRelativeStartTime: start, relativeDuration: timeStep) {
+            self.transform = CGAffineTransform(translationX: dx, y: dy)
           }
-          if (edge == .None && i % 2 == 0) {
+          if (edge == .none && i % 2 == 0) {
             swap(&dx, &dy)  // Change direction
             dy *= -1
           }
@@ -331,23 +331,23 @@ public extension UIView {
           dy *= -0.85
           start += timeStep
         }
-        UIView.addKeyframeWithRelativeStartTime(start, relativeDuration: timeStep) {
-          self.transform = CGAffineTransformIdentity
+        UIView.addKeyframe(withRelativeStartTime: start, relativeDuration: timeStep) {
+          self.transform = .identity
         }
       }, completion: completion)
     return self
   }
 
-  private func offsetForEdge(edge: SimpleAnimationEdge) -> CGPoint {
+  private func offsetFor(edge: SimpleAnimationEdge) -> CGPoint {
     if let parentSize = self.superview?.frame.size {
       switch edge {
-      case .None: return CGPointZero
-      case .Top: return CGPoint(x: 0, y: -CGRectGetMaxY(frame))
-      case .Bottom: return CGPoint(x: 0, y: parentSize.height - CGRectGetMinY(frame))
-      case .Left: return CGPoint(x: -CGRectGetMaxX(frame), y: 0)
-      case .Right: return CGPoint(x: parentSize.width - CGRectGetMinX(frame), y: 0)
+      case .none: return CGPoint.zero
+      case .top: return CGPoint(x: 0, y: -frame.maxY)
+      case .bottom: return CGPoint(x: 0, y: parentSize.height - frame.minY)
+      case .left: return CGPoint(x: -frame.maxX, y: 0)
+      case .right: return CGPoint(x: parentSize.width - frame.minX, y: 0)
       }
     }
-    return CGPointZero
+    return .zero
   }
 }

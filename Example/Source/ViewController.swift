@@ -10,65 +10,65 @@ import SimpleAnimation
 import UIKit
 
 private enum AnimationExampleType: String {
-  case FadeIn = "fadeIn()"
-  case FadeOut = "fadeOut()"
-  case PopIn = "popIn()"
-  case PopOut = "popOut()"
-  case SlideInFromTop = "slideIn(from: .Top)"
-  case SlideInFromBottom = "slideIn(from: .Bottom)"
-  case SlideInFromLeft = "slideIn(from: .Left)"
-  case SlideInFromRight = "slideIn(from: .Right)"
-  case SlideOutToTop = "slideOut(to: .Top)"
-  case SlideOutToBottom = "slideOut(to: .Bottom)"
-  case SlideOutToLeft = "slideOut(to: .Left)"
-  case SlideOutToRight = "slideOut(to: .Right)"
-  case BounceInFromTop = "bounceIn(from: .Top)"
-  case BounceInFromBottom = "bounceIn(from: .Bottom)"
-  case BounceInFromLeft = "bounceIn(from: .Left)"
-  case BounceInFromRight = "bounceIn(from: .Right)"
-  case BounceOutToTop = "bounceOut(to: .Top)"
-  case BounceOutToBottom = "bounceOut(to: .Bottom)"
-  case BounceOutToLeft = "bounceOut(to: .Left)"
-  case BounceOutToRight = "bounceOut(to: .Right)"
-  case Shake = "shake()"
-  case ShakeTowardLeft = "shake(toward: .Left)"
-  case ShakeTowardTop = "shake(toward: .Top)"
-  case Hop = "hop()"
-  case HopTowardTop = "hop(toward: .Top)"
-  case HopTowardBottom = "hop(toward: .Bottom)"
-  case HopTowardLeft = "hop(toward: .Left)"
-  case HopTowardRight = "hop(toward: .Right)"
+  case fadeIn = "fadeIn()"
+  case fadeOut = "fadeOut()"
+  case popIn = "popIn()"
+  case popOut = "popOut()"
+  case slideInFromTop = "slideIn(from: .top)"
+  case slideInFromBottom = "slideIn(from: .bottom)"
+  case slideInFromLeft = "slideIn(from: .left)"
+  case slideInFromRight = "slideIn(from: .right)"
+  case slideOutToTop = "slideOut(to: .top)"
+  case slideOutToBottom = "slideOut(to: .bottom)"
+  case slideOutToLeft = "slideOut(to: .left)"
+  case slideOutToRight = "slideOut(to: .right)"
+  case bounceInFromTop = "bounceIn(from: .top)"
+  case bounceInFromBottom = "bounceIn(from: .bottom)"
+  case bounceInFromLeft = "bounceIn(from: .left)"
+  case bounceInFromRight = "bounceIn(from: .right)"
+  case bounceOutToTop = "bounceOut(to: .top)"
+  case bounceOutToBottom = "bounceOut(to: .bottom)"
+  case bounceOutToLeft = "bounceOut(to: .left)"
+  case bounceOutToRight = "bounceOut(to: .right)"
+  case shake = "shake()"
+  case shakeTowardLeft = "shake(toward: .left)"
+  case shakeTowardTop = "shake(toward: .top)"
+  case hop = "hop()"
+  case hopTowardTop = "hop(toward: .top)"
+  case hopTowardBottom = "hop(toward: .bottom)"
+  case hopTowardLeft = "hop(toward: .left)"
+  case hopTowardRight = "hop(toward: .right)"
 }
 
 private let AllExamples: [AnimationExampleType] = [
-  .FadeIn,
-  .FadeOut,
-  .PopIn,
-  .PopOut,
-  .SlideInFromTop,
-  .SlideInFromBottom,
-  .SlideInFromLeft,
-  .SlideInFromRight,
-  .SlideOutToTop,
-  .SlideOutToBottom,
-  .SlideOutToLeft,
-  .SlideOutToRight,
-  .BounceInFromTop,
-  .BounceInFromBottom,
-  .BounceInFromLeft,
-  .BounceInFromRight,
-  .BounceOutToTop,
-  .BounceOutToBottom,
-  .BounceOutToLeft,
-  .BounceOutToRight,
-  .Shake,
-  .ShakeTowardLeft,
-  .ShakeTowardTop,
-  .Hop,
-  .HopTowardTop,
-  .HopTowardBottom,
-  .HopTowardLeft,
-  .HopTowardRight,
+  .fadeIn,
+  .fadeOut,
+  .popIn,
+  .popOut,
+  .slideInFromTop,
+  .slideInFromBottom,
+  .slideInFromLeft,
+  .slideInFromRight,
+  .slideOutToTop,
+  .slideOutToBottom,
+  .slideOutToLeft,
+  .slideOutToRight,
+  .bounceInFromTop,
+  .bounceInFromBottom,
+  .bounceInFromLeft,
+  .bounceInFromRight,
+  .bounceOutToTop,
+  .bounceOutToBottom,
+  .bounceOutToLeft,
+  .bounceOutToRight,
+  .shake,
+  .shakeTowardLeft,
+  .shakeTowardTop,
+  .hop,
+  .hopTowardTop,
+  .hopTowardBottom,
+  .hopTowardLeft,
+  .hopTowardRight,
 ]
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -81,105 +81,105 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     animatedView.layer.cornerRadius = 20
   }
 
-  @IBAction func startButtonPressed(sender: AnyObject) {
-    startAnimation(AllExamples[typePicker.selectedRowInComponent(0)])
+  @IBAction func startButtonPressed(_ sender: AnyObject) {
+    startAnimation(AllExamples[typePicker.selectedRow(inComponent: 0)])
   }
 
-  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
 
-  func pickerView(view: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+  func pickerView(_ view: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     return AllExamples.count
   }
 
-  func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int,
-                  reusingView view: UIView?) -> UIView {
+  func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int,
+                  reusing view: UIView?) -> UIView {
     let label = UILabel()
     label.text = AllExamples[row].rawValue
     label.font = UIFont(name: "Courier", size: 15)
-    label.textAlignment = NSTextAlignment.Center
-    label.textColor = UIColor.blackColor()
+    label.textAlignment = .center
+    label.textColor = UIColor.black
     return label
   }
 
-  private func startAnimation(type: AnimationExampleType) {
-    animatedView.transform = CGAffineTransformIdentity
+  private func startAnimation(_ type: AnimationExampleType) {
+    animatedView.transform = .identity
     switch (type) {
-    case .FadeIn:
+    case .fadeIn:
       animatedView.fadeIn()
-    case .FadeOut:
+    case .fadeOut:
       animatedView.alpha = 1
       animatedView.fadeOut()
-    case .PopIn:
+    case .popIn:
       animatedView.popIn()
-    case .PopOut:
+    case .popOut:
       animatedView.alpha = 1
       animatedView.popOut()
-    case .SlideInFromTop:
-      animatedView.slideIn(from: .Top)
-    case .SlideInFromBottom:
-      animatedView.slideIn(from: .Bottom)
-    case .SlideInFromLeft:
-      animatedView.slideIn(from: .Left)
-    case .SlideInFromRight:
-      animatedView.slideIn(from: .Right)
-    case .SlideOutToTop:
+    case .slideInFromTop:
+      animatedView.slideIn(from: .top)
+    case .slideInFromBottom:
+      animatedView.slideIn(from: .bottom)
+    case .slideInFromLeft:
+      animatedView.slideIn(from: .left)
+    case .slideInFromRight:
+      animatedView.slideIn(from: .right)
+    case .slideOutToTop:
       animatedView.alpha = 1
-      animatedView.slideOut(to: .Top)
-    case .SlideOutToBottom:
+      animatedView.slideOut(to: .top)
+    case .slideOutToBottom:
       animatedView.alpha = 1
-      animatedView.slideOut(to: .Bottom)
-    case .SlideOutToLeft:
+      animatedView.slideOut(to: .bottom)
+    case .slideOutToLeft:
       animatedView.alpha = 1
-      animatedView.slideOut(to: .Left)
-    case .SlideOutToRight:
+      animatedView.slideOut(to: .left)
+    case .slideOutToRight:
       animatedView.alpha = 1
-      animatedView.slideOut(to: .Right)
-    case .BounceInFromTop:
-      animatedView.bounceIn(from: .Top)
-    case .BounceInFromBottom:
-      animatedView.bounceIn(from: .Bottom)
-    case .BounceInFromLeft:
-      animatedView.bounceIn(from: .Left)
-    case .BounceInFromRight:
-      animatedView.bounceIn(from: .Right)
-    case .BounceOutToTop:
+      animatedView.slideOut(to: .right)
+    case .bounceInFromTop:
+      animatedView.bounceIn(from: .top)
+    case .bounceInFromBottom:
+      animatedView.bounceIn(from: .bottom)
+    case .bounceInFromLeft:
+      animatedView.bounceIn(from: .left)
+    case .bounceInFromRight:
+      animatedView.bounceIn(from: .right)
+    case .bounceOutToTop:
       animatedView.alpha = 1
-      animatedView.bounceOut(to: .Top)
-    case .BounceOutToBottom:
+      animatedView.bounceOut(to: .top)
+    case .bounceOutToBottom:
       animatedView.alpha = 1
-      animatedView.bounceOut(to: .Bottom)
-    case .BounceOutToLeft:
-      animatedView.bounceOut(to: .Left)
+      animatedView.bounceOut(to: .bottom)
+    case .bounceOutToLeft:
+      animatedView.bounceOut(to: .left)
       animatedView.alpha = 1
-    case .BounceOutToRight:
+    case .bounceOutToRight:
       animatedView.alpha = 1
-      animatedView.bounceOut(to: .Right)
-    case .Shake:
+      animatedView.bounceOut(to: .right)
+    case .shake:
       animatedView.alpha = 1
       animatedView.shake()
-    case .ShakeTowardLeft:
+    case .shakeTowardLeft:
       animatedView.alpha = 1
-      animatedView.shake(toward: .Left)
-    case .ShakeTowardTop:
+      animatedView.shake(toward: .left)
+    case .shakeTowardTop:
       animatedView.alpha = 1
-      animatedView.shake(toward: .Top)
-    case .Hop:
+      animatedView.shake(toward: .top)
+    case .hop:
       animatedView.alpha = 1
       animatedView.hop()
-    case .HopTowardTop:
+    case .hopTowardTop:
       animatedView.alpha = 1
-      animatedView.hop(toward: .Top)
-    case .HopTowardBottom:
+      animatedView.hop(toward: .top)
+    case .hopTowardBottom:
       animatedView.alpha = 1
-      animatedView.hop(toward: .Bottom)
-    case .HopTowardLeft:
+      animatedView.hop(toward: .bottom)
+    case .hopTowardLeft:
       animatedView.alpha = 1
-      animatedView.hop(toward: .Left)
-    case .HopTowardRight:
+      animatedView.hop(toward: .left)
+    case .hopTowardRight:
       animatedView.alpha = 1
-      animatedView.hop(toward: .Right)
+      animatedView.hop(toward: .right)
     }
   }
 }
