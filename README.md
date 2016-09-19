@@ -29,7 +29,7 @@ view.shake(toward: .top, amount: 0.5, duration: 2, delay: 0.5)
 ```
 <img src="screenshots/customShake.gif" width="240" height="212">
 
-SimpleAnimation is written in Swift 3.
+SimpleAnimation is written in Swift 3, but older versions can be used with Swift 2.
 
 
 ## Installation
@@ -45,7 +45,7 @@ pod "SimpleAnimation"
 
 For Swift 2.2 or 2.3, use:
 ```ruby
-pod "SimpleAnimation", '~>0.2'
+pod "SimpleAnimation", "~>0.2"
 ```
 
 
@@ -73,7 +73,7 @@ The following animations are supported so far:
   * hop
   * shake
 
-Please see the [example ViewController](Example/SimpleAnimation/ViewController.swift) for more usage examples. You can launch the example in Xcode with:
+Please see the [example ViewController](Example/Source/ViewController.swift) for more usage examples. You can launch the example in Xcode with:
 ```
 cd Example
 pod install
