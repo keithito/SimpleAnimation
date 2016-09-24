@@ -6,6 +6,11 @@
 [![Platform](https://img.shields.io/cocoapods/p/SimpleAnimation.svg?style=flat)](http://cocoapods.org/pods/SimpleAnimation)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
+
+Latest versions:
+  * Swift 3: **0.3.0**
+  * Swift 2: **0.2.0**
+
 **SimpleAnimation is a UIView extension that makes adding basic animations, like fades and bounces, simple...**
 
 ```swift
