@@ -45,7 +45,7 @@ pod "SimpleAnimation"
 
 For Swift 2.2 or 2.3, use:
 ```ruby
-pod "SimpleAnimation", "~>0.2"
+pod "SimpleAnimation", "~>0.2.0"
 ```
 
 
