@@ -1,5 +1,11 @@
+## [0.3.1](https://github.com/keithito/SimpleAnimation/releases/tag/0.3.1)
+*2017-01-10*
+
+- Add support for tvOS - [#12](https://github.com/keithito/SimpleAnimation/pull/12)
+
+
 ## [0.3.0](https://github.com/keithito/SimpleAnimation/releases/tag/0.3.0)
-*2016-07-24*
+*2016-09-24*
 
 - Migrate to Swift 3 - [#11](https://github.com/keithito/SimpleAnimation/pull/11)
   For Swift 2.2 or 2.3, please use the 0.2.0 release.
