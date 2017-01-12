@@ -8,7 +8,7 @@
 
 
 Latest versions:
-  * Swift 3: **0.3.0**
+  * Swift 3: **0.3.1**
   * Swift 2: **0.2.0**
 
 **SimpleAnimation is a UIView extension that makes adding basic animations, like fades and bounces, simple...**
