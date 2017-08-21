@@ -6,12 +6,12 @@
 //  Copyright (c) 2016 Keith Ito. All rights reserved.
 //
 
-import SimpleAnimation
 import UIKit
 
 private enum AnimationExampleType: String {
   case fadeIn = "fadeIn()"
   case fadeOut = "fadeOut()"
+  case fadeColor = "fadeColor(toColor: .blue)"
   case popIn = "popIn()"
   case popOut = "popOut()"
   case slideInFromTop = "slideIn(from: .top)"
@@ -43,6 +43,7 @@ private enum AnimationExampleType: String {
 private let AllExamples: [AnimationExampleType] = [
   .fadeIn,
   .fadeOut,
+  .fadeColor,
   .popIn,
   .popOut,
   .slideInFromTop,
@@ -111,6 +112,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     case .fadeOut:
       animatedView.alpha = 1
       animatedView.fadeOut()
+    case .fadeColor:
+      animatedView.alpha = 1
+      animatedView.fadeColor(toColor: .blue)
     case .popIn:
       animatedView.popIn()
     case .popOut:

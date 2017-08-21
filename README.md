@@ -69,6 +69,7 @@ github "keithito/SimpleAnimation"
 The following animations are supported so far:
   * fadeIn
   * fadeOut
+  * fadeColor
   * slideIn
   * slideOut
   * bounceIn
@@ -78,12 +79,8 @@ The following animations are supported so far:
   * hop
   * shake
 
-Please see the [example ViewController](Example/Source/ViewController.swift) for more usage examples. You can launch the example in Xcode with:
-```
-cd Example
-pod install
-open SimpleAnimation.xcworkspace
-```
+Please see the [example ViewController](Example/Source/ViewController.swift) for more usage examples.
+To build the example in XCode, open Example/Example.xcodeproj.
 
 ## License
 
