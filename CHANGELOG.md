@@ -1,3 +1,9 @@
+## [0.3.2](https://github.com/keithito/SimpleAnimation/releases/tag/0.3.2)
+*2017-01-10*
+
+- Add fadeColor animation - [#15](https://github.com/keithito/SimpleAnimation/pull/15)
+
+
 ## [0.3.1](https://github.com/keithito/SimpleAnimation/releases/tag/0.3.1)
 *2017-01-10*
 
