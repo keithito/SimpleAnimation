@@ -13,7 +13,7 @@
 		400523871CC973E100E6DDA3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400523831CC973E100E6DDA3 /* LaunchScreen.xib */; };
 		400523881CC973E100E6DDA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400523851CC973E100E6DDA3 /* Main.storyboard */; };
 		4005238A1CC973F200E6DDA3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 400523891CC973F200E6DDA3 /* Info.plist */; };
-		403A55AC1D8F3B2B0030F1DB /* SimpleAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 403A55AB1D8F3B2B0030F1DB /* SimpleAnimation.framework */; };
+		407C88111F4B2AD60077A2BC /* UIView+SimpleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C88101F4B2AD60077A2BC /* UIView+SimpleAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +24,7 @@
 		400523841CC973E100E6DDA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		400523861CC973E100E6DDA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		400523891CC973F200E6DDA3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
-		403A55AB1D8F3B2B0030F1DB /* SimpleAnimation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleAnimation.framework; path = "../build/Debug-iphoneos/SimpleAnimation.framework"; sourceTree = "<group>"; };
+		407C88101F4B2AD60077A2BC /* UIView+SimpleAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+SimpleAnimation.swift"; path = "../Source/UIView+SimpleAnimation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +32,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				403A55AC1D8F3B2B0030F1DB /* SimpleAnimation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,7 +47,6 @@
 				400523831CC973E100E6DDA3 /* LaunchScreen.xib */,
 				400523891CC973F200E6DDA3 /* Info.plist */,
 				400523521CC7B94C00E6DDA3 /* Products */,
-				40EFE20D1D8F2AB1004B82CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,18 +61,11 @@
 		400523791CC973A900E6DDA3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				407C88101F4B2AD60077A2BC /* UIView+SimpleAnimation.swift */,
 				4005237A1CC973B900E6DDA3 /* AppDelegate.swift */,
 				4005237B1CC973B900E6DDA3 /* ViewController.swift */,
 			);
 			name = Source;
-			sourceTree = "<group>";
-		};
-		40EFE20D1D8F2AB1004B82CC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				403A55AB1D8F3B2B0030F1DB /* SimpleAnimation.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407C88111F4B2AD60077A2BC /* UIView+SimpleAnimation.swift in Sources */,
 				4005237D1CC973B900E6DDA3 /* ViewController.swift in Sources */,
 				4005237C1CC973B900E6DDA3 /* AppDelegate.swift in Sources */,
 			);
