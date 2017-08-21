@@ -7,10 +7,6 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
-Latest versions:
-  * Swift 3: **0.3.1**
-  * Swift 2: **0.2.0**
-
 **SimpleAnimation is a UIView extension that makes adding basic animations, like fades and bounces, simple...**
 
 ```swift
@@ -48,10 +44,6 @@ it, add the following to your `Podfile`:
 pod "SimpleAnimation"
 ```
 
-For Swift 2.2 or 2.3, use:
-```ruby
-pod "SimpleAnimation", "~>0.2.0"
-```
 
 
 ### Carthage
@@ -81,6 +73,7 @@ The following animations are supported so far:
 
 Please see the [example ViewController](Example/Source/ViewController.swift) for more usage examples.
 To build the example in XCode, open Example/Example.xcodeproj.
+
 
 ## License
 
