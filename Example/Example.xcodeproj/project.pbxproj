@@ -12,7 +12,6 @@
 		400523801CC973C600E6DDA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4005237F1CC973C600E6DDA3 /* Assets.xcassets */; };
 		400523871CC973E100E6DDA3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400523831CC973E100E6DDA3 /* LaunchScreen.xib */; };
 		400523881CC973E100E6DDA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400523851CC973E100E6DDA3 /* Main.storyboard */; };
-		4005238A1CC973F200E6DDA3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 400523891CC973F200E6DDA3 /* Info.plist */; };
 		407C88111F4B2AD60077A2BC /* UIView+SimpleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C88101F4B2AD60077A2BC /* UIView+SimpleAnimation.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +99,7 @@
 				TargetAttributes = {
 					400523501CC7B94C00E6DDA3 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 					};
 				};
 			};
@@ -127,7 +126,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4005238A1CC973F200E6DDA3 /* Info.plist in Resources */,
 				400523881CC973E100E6DDA3 /* Main.storyboard in Resources */,
 				400523871CC973E100E6DDA3 /* LaunchScreen.xib in Resources */,
 				400523801CC973C600E6DDA3 /* Assets.xcassets in Resources */,
@@ -265,7 +263,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.keithito.SimpleAnimationExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -279,7 +278,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.keithito.SimpleAnimationExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
