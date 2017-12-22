@@ -1,3 +1,10 @@
+## [0.4.0](https://github.com/keithito/SimpleAnimation/releases/tag/0.4.0)
+*2017-12-21*
+
+- Migrate project to Swift 4 - [#16](https://github.com/keithito/SimpleAnimation/pull/16)
+  If using Xcode 8, please use the 0.3.2 release.
+
+
 ## [0.3.2](https://github.com/keithito/SimpleAnimation/releases/tag/0.3.2)
 *2017-08-21*
 

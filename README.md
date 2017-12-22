@@ -35,8 +35,7 @@ view.shake(toward: .top, amount: 0.5, duration: 2, delay: 0.5)
 
 ### CocoaPods
 
-SimpleAnimation is available through [CocoaPods](http://cocoapods.org). To install
-it, add the following to your `Podfile`:
+To integrate SimpleAnimation into a project using [CocoaPods](http://cocoapods.org), add the following to your `Podfile`:
 
 ```ruby
 pod "SimpleAnimation"
@@ -46,12 +45,18 @@ pod "SimpleAnimation"
 
 ### Carthage
 
-SimpleAnimation is available through [Carthage](https://github.com/Carthage/Carthage). To install
-it, add the following to your `Cartfile`:
+To integrate SimpleAnimation into a project using [Carthage](https://github.com/Carthage/Carthage), add the following to your `Cartfile`:
 
 ```
 github "keithito/SimpleAnimation"
 ```
+
+
+### Older Xcode Versions
+
+If you are using Xcode 8 to build your project, you need to use version **0.3.2** of SimpleAnimation.
+You can do so by specifying the version number in your Podfile or Cartfile.
+
 
 
 ## Supported Animations
