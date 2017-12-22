@@ -30,8 +30,6 @@ view.shake(toward: .top, amount: 0.5, duration: 2, delay: 0.5)
 ```
 <img src="screenshots/customShake.gif" width="240" height="212">
 
-SimpleAnimation is written in Swift 3, but older versions can be used with Swift 2.
-
 
 ## Installation
 
