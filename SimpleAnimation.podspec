@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "SimpleAnimation"
-  s.version          = "0.4.0"
+  s.version          = "0.4.1"
   s.summary          = "A UIView extension to make basic animations, like fades and bounces, simple."
   s.homepage         = "https://github.com/keithito/SimpleAnimation"
   s.license          = 'MIT'
@@ -12,5 +12,6 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
 
   s.source_files = 'Source/*'
+  s.exclude_files = 'Source/*.plist'
   s.frameworks = 'UIKit'
 end
