@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4005232F1CC7B47800E6DDA3 /* SimpleAnimation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400523241CC7B47800E6DDA3 /* SimpleAnimation.framework */; };
 		4005233F1CC7B51F00E6DDA3 /* UIView+SimpleAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4005233E1CC7B51F00E6DDA3 /* UIView+SimpleAnimation.swift */; };
-		400523441CC7B5E000E6DDA3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 400523421CC7B5E000E6DDA3 /* Info.plist */; };
 		400523471CC7B87500E6DDA3 /* UIView+SimpleAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400523431CC7B5E000E6DDA3 /* UIView+SimpleAnimationTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -182,7 +181,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				400523441CC7B5E000E6DDA3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
